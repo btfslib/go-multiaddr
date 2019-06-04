@@ -19,6 +19,7 @@ const (
 	P_UNIX              = 0x0190
 	P_P2P               = 0x01A5
 	P_IPFS              = 0x01A5 // alias for backwards compatability
+	P_BTFS              = 0x01A5 // alias for backwards compatability
 	P_HTTP              = 0x01E0
 	P_HTTPS             = 0x01BB
 	P_ONION             = 0x01BC // also for backwards compatibility
@@ -130,7 +131,7 @@ var (
 		VCode: CodeToVarint(P_HTTPS),
 	}
 	protoP2P = Protocol{
-		Name:       "ipfs",
+		Name:       "btfs",
 		Code:       P_P2P,
 		VCode:      CodeToVarint(P_P2P),
 		Size:       LengthPrefixedVarSize,
@@ -180,4 +181,5 @@ func init() {
 	// explicitly set both of these
 	protocolsByName["p2p"] = protoP2P
 	protocolsByName["ipfs"] = protoP2P
+	protocolsByName["btfs"] = protoP2P
 }
